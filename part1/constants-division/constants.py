@@ -1,0 +1,4 @@
+
+
+DOWN_PAYMENT = 0.2
+ANNUAL_RATE = 0.3

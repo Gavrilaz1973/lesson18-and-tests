@@ -1,5 +1,5 @@
-import requests
-from flask import Flask, jsonify
+
+from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 
 from config import Config
@@ -25,7 +25,7 @@ db.create_all()
 
 @app.route("/import")
 def import_data():
-    data = requests.get(url=app.config.get("API_URL"))
+    data = request.get(url=app.config.get("API_URL"))
     for d in data.json():
         p = Phone(**d)
         with db.session.begin():
